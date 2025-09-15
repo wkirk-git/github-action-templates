@@ -108,6 +108,11 @@ jobs:
 * link:workflows/ai/mcp/cloud/gcp-cloudrun.yml[GCP Cloud Run] – Deploy MCP servers as managed containers on Google Cloud Run.
 * link:workflows/ai/mcp/cloud/azure-container-apps.yml[Azure Container Apps] – Deploy MCP servers to Azure Container Apps.
 
+===== MCP Kubernetes Deployments
+
+* link:workflows/ai/mcp/k8s/kubectl-deploy.yml[MCP kubectl Deploy] – Deploy MCP server manifests to Kubernetes clusters.
+* link:workflows/ai/mcp/k8s/helm-deploy.yml[MCP Helm Deploy] – Deploy MCP server using Helm charts.
+* link:workflows/ai/mcp/k8s/integration-test.yml[MCP K8s Integration Test] – Run MCP integration tests inside a Kubernetes cluster.
 
 
 == 📜 License

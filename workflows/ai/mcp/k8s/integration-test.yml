@@ -1,0 +1,24 @@
+name: MCP K8s Integration Test
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-kubectl@v3
+        with:
+          version: v1.29.0
+
+      - name: Configure Kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > ~/.kube/config
+
+      - name: Run integration tests
+        run: |
+          kubectl run test-mcp --rm -i --restart=Never \
+            --image=my-mcp-server:latest -- python /app/tests/integration_test.py

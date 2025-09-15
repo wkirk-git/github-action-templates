@@ -1,0 +1,26 @@
+name: Deploy MCP Server to Kubernetes
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  k8s-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: v1.29.0
+
+      - name: Configure Kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > ~/.kube/config
+
+      - name: Deploy MCP manifests
+        run: |
+          kubectl apply -f k8s/mcp/
