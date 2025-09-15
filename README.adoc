@@ -94,6 +94,14 @@ jobs:
 * link:workflows/ai/cloud/gcp-vertex-ai.yml[GCP Vertex AI] – Train and deploy ML models on Google Cloud Vertex AI.
 * link:workflows/ai/cloud/azure-ml.yml[Azure ML] – Train and deploy ML models using Azure Machine Learning.
 
+=== MCP (Model Context Protocol)
+
+* link:workflows/ai/mcp/mcp-server.yml[Build & Test MCP Server] – CI workflow for validating MCP servers (Node.js or Python).
+* link:workflows/ai/mcp/publish.yml[Publish MCP Server] – Publishes MCP servers to npm or PyPI.
+* link:workflows/ai/mcp/integration.yml[MCP Integration Test] – Runs integration tests between MCP client(s) and server(s).
+* link:workflows/ai/mcp/deploy.yml[Deploy MCP Server (Docker)] – Builds and pushes MCP servers as containerized services.
+
+
 == 📜 License
 
 Distributed under the MIT License. See `LICENSE` for details.
