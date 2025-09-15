@@ -1,4 +1,4 @@
-= GitHub Actions Boilerplates
+= GitHub Actions Boilerplate Repository
 :toc:
 :toclevels: 2
 :icons: font
