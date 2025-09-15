@@ -101,6 +101,14 @@ jobs:
 * link:workflows/ai/mcp/integration.yml[MCP Integration Test] – Runs integration tests between MCP client(s) and server(s).
 * link:workflows/ai/mcp/deploy.yml[Deploy MCP Server (Docker)] – Builds and pushes MCP servers as containerized services.
 
+==== MCP Cloud Deployments
+
+* link:workflows/ai/mcp/cloud/aws-lambda.yml[AWS Lambda] – Deploy MCP servers as serverless functions on AWS Lambda.
+* link:workflows/ai/mcp/cloud/aws-ecs.yml[AWS ECS] – Deploy containerized MCP servers on AWS ECS.
+* link:workflows/ai/mcp/cloud/gcp-cloudrun.yml[GCP Cloud Run] – Deploy MCP servers as managed containers on Google Cloud Run.
+* link:workflows/ai/mcp/cloud/azure-container-apps.yml[Azure Container Apps] – Deploy MCP servers to Azure Container Apps.
+
+
 
 == 📜 License
 

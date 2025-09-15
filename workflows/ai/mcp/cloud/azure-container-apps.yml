@@ -1,0 +1,31 @@
+name: Deploy MCP Server to Azure Container Apps
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Build & Push Docker Image
+        run: |
+          docker build -t my-mcp-server .
+          docker tag my-mcp-server myRegistry.azurecr.io/my-mcp-server:latest
+          echo ${{ secrets.AZURE_ACR_PASSWORD }} | docker login myRegistry.azurecr.io -u ${{ secrets.AZURE_ACR_USERNAME }} --password-stdin
+          docker push myRegistry.azurecr.io/my-mcp-server:latest
+
+      - name: Deploy to Azure Container App
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: .
+          containerAppName: my-mcp-server
+          resourceGroup: myResourceGroup
+          acrName: myRegistry
