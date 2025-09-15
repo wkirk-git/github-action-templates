@@ -1,0 +1,29 @@
+name: Train & Deploy on Azure ML
+
+on:
+  workflow_dispatch:
+
+jobs:
+  azure-ml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Submit Azure ML job
+        run: |
+          az extension add -n ml -y
+          az ml job create --file configs/training-job.yml --resource-group myRG --workspace-name myMLWS
+
+      - name: Deploy model
+        run: |
+          az ml model deploy --name my-model-api \
+            --model my-model:1 \
+            --resource-group myRG \
+            --workspace-name myMLWS \
+            --instance-type Standard_DS3_v2 \
+            --instance-count 1

@@ -90,7 +90,9 @@ jobs:
 * link:workflows/ai/huggingface-deploy.yml[Deploy to Hugging Face Hub] – Publishes models to Hugging Face’s Model Hub.
 * link:workflows/ai/deploy-docker-model.yml[Deploy Model with Docker] – Builds and pushes ML model APIs as Docker containers.
 * link:workflows/ai/mlflow.yml[MLflow Experiment Tracking] – Logs and tracks experiments in MLflow.
-
+* link:workflows/ai/cloud/aws-sagemaker.yml[AWS SageMaker] – Train and deploy ML models on AWS SageMaker.
+* link:workflows/ai/cloud/gcp-vertex-ai.yml[GCP Vertex AI] – Train and deploy ML models on Google Cloud Vertex AI.
+* link:workflows/ai/cloud/azure-ml.yml[Azure ML] – Train and deploy ML models using Azure Machine Learning.
 
 == 📜 License
 

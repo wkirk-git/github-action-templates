@@ -1,0 +1,33 @@
+name: Train & Deploy on GCP Vertex AI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  vertex-ai:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Submit training job
+        run: |
+          gcloud ai custom-jobs create \
+            --region=us-central1 \
+            --display-name=my-training-job \
+            --config=configs/training.yaml
+
+      - name: Deploy model
+        run: |
+          gcloud ai endpoints create --region=us-central1 --display-name=my-endpoint
+          gcloud ai endpoints deploy-model my-endpoint-id \
+            --region=us-central1 \
+            --model=my-model-id \
+            --machine-type=n1-standard-4
