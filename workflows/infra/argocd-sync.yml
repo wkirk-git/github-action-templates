@@ -1,0 +1,16 @@
+name: ArgoCD Sync
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger ArgoCD Sync
+        run: |
+          curl -X POST \
+            -u "admin:${{ secrets.ARGOCD_PASSWORD }}" \
+            https://argocd.example.com/api/v1/applications/my-app/sync

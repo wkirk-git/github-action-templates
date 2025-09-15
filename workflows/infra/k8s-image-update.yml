@@ -1,0 +1,19 @@
+name: Kubernetes Image Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: "New image tag"
+        required: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: azure/setup-kubectl@v3
+        with:
+          version: v1.29.0
+      - run: |
+          kubectl set image deployment/my-app my-app=${{ github.event.inputs.image }} --record

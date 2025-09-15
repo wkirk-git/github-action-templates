@@ -63,6 +63,13 @@ jobs:
 * link:workflows/infra/terraform-plan-apply.yml[Terraform Plan & Apply] – Validate, plan, and apply Terraform configurations.
 * link:workflows/infra/ansible-lint.yml[Ansible Lint] – Lint Ansible playbooks for best practices.
 * link:workflows/infra/k8s-deploy.yml[Kubernetes Deploy] – Deploy Kubernetes manifests via kubectl.
+* link:workflows/infra/helm-deploy.yml[Helm Deploy] – Deploy applications using Helm charts.
+* link:workflows/infra/helm-lint.yml[Helm Lint] – Validate Helm charts with linting and template rendering.
+* link:workflows/infra/kustomize-deploy.yml[Kustomize Deploy] – Deploy manifests with Kustomize overlays.
+* link:workflows/infra/k8s-validate.yml[Kubernetes Validate] – Dry-run manifest validation.
+* link:workflows/infra/k8s-policy-check.yml[Kubernetes Policy Check] – Enforce best practices with kube-score.
+* link:workflows/infra/argocd-sync.yml[ArgoCD Sync] – Trigger ArgoCD application sync.
+* link:workflows/infra/k8s-image-update.yml[Kubernetes Image Update] – Patch deployments with new image tags.
 
 === Miscellaneous
 
