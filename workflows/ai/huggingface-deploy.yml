@@ -1,0 +1,19 @@
+name: Deploy to Hugging Face Hub
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload to Hugging Face Hub
+        uses: huggingface/hub-action@v1
+        with:
+          repo-token: ${{ secrets.HF_TOKEN }}
+          repo-id: my-username/my-model
+          path: ./models/

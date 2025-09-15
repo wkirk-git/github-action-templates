@@ -18,6 +18,7 @@ Copy them into your project or consume them as reusable workflows.
 │   ├── cloud/
 │   ├── infra/
 │   └── misc/
+│   └── ai/
 ----
 
 == 🚀 Usage
@@ -81,6 +82,15 @@ jobs:
 * link:workflows/misc/lint-format.yml[Lint & Format] – Run code style checks and format validation.
 * link:workflows/misc/security-scans.yml[Security Scans] – Run Trivy or similar scanners on codebase & dependencies.
 * link:workflows/misc/release.yml[Release] – Auto-generate GitHub Releases from tags with changelog notes.
+
+=== AI / Machine Learning Workflows
+
+* link:workflows/ai/train-model.yml[Train ML Model] – Runs a training pipeline for ML/DL projects (PyTorch, TensorFlow, Hugging Face).
+* link:workflows/ai/test-model.yml[Test ML Model] – Executes unit tests and model evaluation metrics.
+* link:workflows/ai/huggingface-deploy.yml[Deploy to Hugging Face Hub] – Publishes models to Hugging Face’s Model Hub.
+* link:workflows/ai/deploy-docker-model.yml[Deploy Model with Docker] – Builds and pushes ML model APIs as Docker containers.
+* link:workflows/ai/mlflow.yml[MLflow Experiment Tracking] – Logs and tracks experiments in MLflow.
+
 
 == 📜 License
 
