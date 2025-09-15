@@ -14,30 +14,10 @@ Copy them into your project or consume them as reusable workflows.
 .github-actions-boilerplates/
 ├── workflows/
 │   ├── ci/
-│   │   ├── nodejs.yml
-│   │   ├── python.yml
-│   │   ├── java-maven.yml
-│   │   ├── dotnet.yml
-│   │   ├── go.yml
-│   │   ├── rust.yml
-│   │   ├── php.yml
-│   │   └── ruby.yml
 │   ├── docker/
-│   │   ├── docker-build-push.yml
-│   │   ├── docker-compose-test.yml
-│   │   └── kaniko-build.yml
 │   ├── cloud/
-│   │   ├── aws-deploy.yml
-│   │   ├── gcp-deploy.yml
-│   │   └── azure-deploy.yml
 │   ├── infra/
-│   │   ├── terraform-plan-apply.yml
-│   │   ├── ansible-lint.yml
-│   │   └── k8s-deploy.yml
 │   └── misc/
-│       ├── lint-format.yml
-│       ├── security-scans.yml
-│       └── release.yml
 ----
 
 == 🚀 Usage
@@ -48,51 +28,47 @@ Copy a workflow into your repository under `.github/workflows/`, or reference it
 ----
 jobs:
   build:
-    uses: your-org/github-actions-boilerplates/.github/workflows/nodejs.yml@main
+    uses: your-org/github-actions-boilerplates/.github/workflows/ci/nodejs.yml@main
     with:
       node-version: '20'
 ----
 
-== 🧰 Categories
+== 🧰 Workflow Catalog
 
 === Continuous Integration (CI)
 
-* `ci/nodejs.yml` – Run Node.js builds & tests with caching.
-* `ci/python.yml` – Python builds (pytest, tox, cache pip).
-* `ci/java-maven.yml` – Java/Maven build & test.
-* `ci/dotnet.yml` – .NET Core build & test.
-* `ci/go.yml` – Go build, lint, and test.
-* `ci/rust.yml` – Rust with cargo build/test.
-* `ci/php.yml` – PHP with Composer & PHPUnit.
-* `ci/ruby.yml` – Ruby with Bundler & RSpec.
+* link:workflows/ci/nodejs.yml[Node.js] – Run Node.js builds & tests with dependency caching.
+* link:workflows/ci/python.yml[Python] – Run tests with pytest/tox, cache pip dependencies.
+* link:workflows/ci/java-maven.yml[Java (Maven)] – Compile & test Java projects using Maven.
+* link:workflows/ci/dotnet.yml[.NET] – Build and test .NET Core projects.
+* link:workflows/ci/go.yml[Go] – Build, lint, and test Go projects.
+* link:workflows/ci/rust.yml[Rust] – Build & test Rust projects with Cargo.
+* link:workflows/ci/php.yml[PHP] – Run Composer install & PHPUnit tests.
+* link:workflows/ci/ruby.yml[Ruby] – Run Bundler setup & RSpec/Rake tests.
 
 === Containers
 
-* `docker/docker-build-push.yml` – Build & push Docker image to GHCR/DockerHub.
-* `docker/docker-compose-test.yml` – Run integration tests with docker-compose.
-* `docker/kaniko-build.yml` – Dockerless build with Kaniko.
+* link:workflows/docker/docker-build-push.yml[Docker Build & Push] – Build Docker images and push to GHCR or DockerHub.
+* link:workflows/docker/docker-compose-test.yml[Docker Compose Test] – Run integration tests using docker-compose.
+* link:workflows/docker/kaniko-build.yml[Kaniko Build] – Build Docker images without Docker using Kaniko.
 
 === Cloud Deployments
 
-* `cloud/aws-deploy.yml` – Deploy to AWS (ECS, Lambda, or S3).
-* `cloud/gcp-deploy.yml` – Deploy to GCP (Cloud Run or GKE).
-* `cloud/azure-deploy.yml` – Deploy to Azure (WebApps or AKS).
+* link:workflows/cloud/aws-deploy.yml[AWS Deploy] – Deploy artifacts to AWS (S3, ECS, Lambda).
+* link:workflows/cloud/gcp-deploy.yml[GCP Deploy] – Deploy to Google Cloud (Cloud Run, GKE).
+* link:workflows/cloud/azure-deploy.yml[Azure Deploy] – Deploy to Azure WebApps or AKS.
 
 === Infrastructure-as-Code
 
-* `infra/terraform-plan-apply.yml` – Validate, plan, and apply Terraform.
-* `infra/ansible-lint.yml` – Lint Ansible playbooks.
-* `infra/k8s-deploy.yml` – Deploy manifests to Kubernetes cluster.
+* link:workflows/infra/terraform-plan-apply.yml[Terraform Plan & Apply] – Validate, plan, and apply Terraform configurations.
+* link:workflows/infra/ansible-lint.yml[Ansible Lint] – Lint Ansible playbooks for best practices.
+* link:workflows/infra/k8s-deploy.yml[Kubernetes Deploy] – Deploy Kubernetes manifests via kubectl.
 
 === Miscellaneous
 
-* `misc/lint-format.yml` – Run code linting and formatting checks.
-* `misc/security-scans.yml` – Run security scans (Dependabot, Trivy, Snyk).
-* `misc/release.yml` – Create GitHub releases with changelog.
-
-== 🤝 Contributing
-
-See link:docs/CONTRIBUTING.md[CONTRIBUTING.md] for how to add or update workflows.  
+* link:workflows/misc/lint-format.yml[Lint & Format] – Run code style checks and format validation.
+* link:workflows/misc/security-scans.yml[Security Scans] – Run Trivy or similar scanners on codebase & dependencies.
+* link:workflows/misc/release.yml[Release] – Auto-generate GitHub Releases from tags with changelog notes.
 
 == 📜 License
 

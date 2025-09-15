@@ -1,0 +1,14 @@
+name: Docker Compose Test
+
+on: [push, pull_request]
+
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose up -d
+      - run: docker compose ps
+      - run: docker compose run test
+      - run: docker compose down
