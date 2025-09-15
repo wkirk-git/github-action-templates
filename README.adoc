@@ -1,0 +1,99 @@
+= GitHub Actions Boilerplates
+:toc:
+:toclevels: 2
+:icons: font
+:sectanchors:
+
+A curated collection of reusable GitHub Actions workflows for the most common DevOps build, test, and deploy pipelines.  
+Copy them into your project or consume them as reusable workflows.
+
+== 📂 Repository Structure
+
+[source,plaintext]
+----
+.github-actions-boilerplates/
+├── workflows/
+│   ├── ci/
+│   │   ├── nodejs.yml
+│   │   ├── python.yml
+│   │   ├── java-maven.yml
+│   │   ├── dotnet.yml
+│   │   ├── go.yml
+│   │   ├── rust.yml
+│   │   ├── php.yml
+│   │   └── ruby.yml
+│   ├── docker/
+│   │   ├── docker-build-push.yml
+│   │   ├── docker-compose-test.yml
+│   │   └── kaniko-build.yml
+│   ├── cloud/
+│   │   ├── aws-deploy.yml
+│   │   ├── gcp-deploy.yml
+│   │   └── azure-deploy.yml
+│   ├── infra/
+│   │   ├── terraform-plan-apply.yml
+│   │   ├── ansible-lint.yml
+│   │   └── k8s-deploy.yml
+│   └── misc/
+│       ├── lint-format.yml
+│       ├── security-scans.yml
+│       └── release.yml
+----
+
+== 🚀 Usage
+
+Copy a workflow into your repository under `.github/workflows/`, or reference it as a reusable workflow:
+
+[source,yaml]
+----
+jobs:
+  build:
+    uses: your-org/github-actions-boilerplates/.github/workflows/nodejs.yml@main
+    with:
+      node-version: '20'
+----
+
+== 🧰 Categories
+
+=== Continuous Integration (CI)
+
+* `ci/nodejs.yml` – Run Node.js builds & tests with caching.
+* `ci/python.yml` – Python builds (pytest, tox, cache pip).
+* `ci/java-maven.yml` – Java/Maven build & test.
+* `ci/dotnet.yml` – .NET Core build & test.
+* `ci/go.yml` – Go build, lint, and test.
+* `ci/rust.yml` – Rust with cargo build/test.
+* `ci/php.yml` – PHP with Composer & PHPUnit.
+* `ci/ruby.yml` – Ruby with Bundler & RSpec.
+
+=== Containers
+
+* `docker/docker-build-push.yml` – Build & push Docker image to GHCR/DockerHub.
+* `docker/docker-compose-test.yml` – Run integration tests with docker-compose.
+* `docker/kaniko-build.yml` – Dockerless build with Kaniko.
+
+=== Cloud Deployments
+
+* `cloud/aws-deploy.yml` – Deploy to AWS (ECS, Lambda, or S3).
+* `cloud/gcp-deploy.yml` – Deploy to GCP (Cloud Run or GKE).
+* `cloud/azure-deploy.yml` – Deploy to Azure (WebApps or AKS).
+
+=== Infrastructure-as-Code
+
+* `infra/terraform-plan-apply.yml` – Validate, plan, and apply Terraform.
+* `infra/ansible-lint.yml` – Lint Ansible playbooks.
+* `infra/k8s-deploy.yml` – Deploy manifests to Kubernetes cluster.
+
+=== Miscellaneous
+
+* `misc/lint-format.yml` – Run code linting and formatting checks.
+* `misc/security-scans.yml` – Run security scans (Dependabot, Trivy, Snyk).
+* `misc/release.yml` – Create GitHub releases with changelog.
+
+== 🤝 Contributing
+
+See link:docs/CONTRIBUTING.md[CONTRIBUTING.md] for how to add or update workflows.  
+
+== 📜 License
+
+Distributed under the MIT License. See `LICENSE` for details.
