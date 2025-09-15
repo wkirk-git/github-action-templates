@@ -57,6 +57,11 @@ jobs:
 * link:workflows/cloud/aws-deploy.yml[AWS Deploy] – Deploy artifacts to AWS (S3, ECS, Lambda).
 * link:workflows/cloud/gcp-deploy.yml[GCP Deploy] – Deploy to Google Cloud (Cloud Run, GKE).
 * link:workflows/cloud/azure-deploy.yml[Azure Deploy] – Deploy to Azure WebApps or AKS.
+* link:workflows/cloud/azure-aks-deploy.yml[Azure AKS] – Deploy Kubernetes manifests to Azure Kubernetes Service.
+* link:workflows/cloud/azure-functions.yml[Azure Functions] – Deploy serverless applications to Azure Functions.
+* link:workflows/cloud/azure-container-apps.yml[Azure Container Apps] – Deploy containerized workloads to Azure Container Apps.
+* link:workflows/cloud/azure-static-webapps.yml[Azure Static Web Apps] – Deploy JAMstack or SPA apps to Azure’s static hosting service.
+* link:workflows/cloud/azure-bicep.yml[Azure Bicep/ARM] – Provision Azure infrastructure using Bicep or ARM templates.
 
 === Infrastructure-as-Code
 

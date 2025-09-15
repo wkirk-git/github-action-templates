@@ -1,0 +1,25 @@
+name: Deploy to Azure Container Apps
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Container App
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: .
+          acrName: myRegistry
+          containerAppName: my-container-app
+          resourceGroup: myResourceGroup
